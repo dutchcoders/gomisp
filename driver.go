@@ -47,7 +47,6 @@ func (c *Client) NewRequest(method, urlStr string, body interface{}) (*http.Requ
 // Do will execute the http.Request and decode the result
 func (wd *Client) Do(req *http.Request, v interface{}) error {
 	if dump, err := httputil.DumpRequestOut(req, false); err == nil {
-		fmt.Println("DUMP")
 		os.Stdout.Write(dump)
 	}
 
@@ -69,7 +68,6 @@ func (wd *Client) Do(req *http.Request, v interface{}) error {
 	r2 := r
 
 	if resp.StatusCode != http.StatusOK {
-		fmt.Println("ER stat", resp.StatusCode)
 		result := ErrorResult{}
 		json.NewDecoder(r2).Decode(&result)
 		return fmt.Errorf(result.Error)
@@ -77,7 +75,6 @@ func (wd *Client) Do(req *http.Request, v interface{}) error {
 
 	err = json.NewDecoder(r2).Decode(&v)
 	if err != nil {
-		fmt.Println("DECODE", err.Error())
 		return err
 	}
 
