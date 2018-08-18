@@ -1,6 +1,6 @@
-# gomips [![](https://godoc.org/github.com/dutchcoders/gomips?status.svg)](http://godoc.org/github.com/dutchcoders/gomips) [![Go Report Card](https://goreportcard.com/badge/dutchcoders/gomips)](https://goreportcard.com/report/dutchcoders/gomips) 
+# gomisp [![](https://godoc.org/github.com/dutchcoders/gomisp?status.svg)](http://godoc.org/github.com/dutchcoders/gomisp) [![Go Report Card](https://goreportcard.com/badge/dutchcoders/gomisp)](https://goreportcard.com/report/dutchcoders/gomisp) 
 
-Golang client for MIPS. The client currently only implements search, but it is easy to extend other features.
+Golang client for MISP. The client currently only implements search, but it is easy to extend other features.
 
 ## Usage
 
