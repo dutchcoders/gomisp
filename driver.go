@@ -46,7 +46,8 @@ func (c *Client) NewRequest(method, urlStr string, body interface{}) (*http.Requ
 
 // Do will execute the http.Request and decode the result
 func (wd *Client) Do(req *http.Request, v interface{}) error {
-	if dump, err := httputil.DumpRequestOut(req, false); err == nil {
+	if !wd.debug {
+	} else if dump, err := httputil.DumpRequestOut(req, false); err == nil {
 		os.Stdout.Write(dump)
 	}
 
@@ -58,7 +59,7 @@ func (wd *Client) Do(req *http.Request, v interface{}) error {
 	r := resp.Body
 	defer r.Close()
 
-	if true {
+	if !wd.debug {
 	} else if dump, err := httputil.DumpResponse(resp, true); err == nil {
 		os.Stdout.Write(dump)
 

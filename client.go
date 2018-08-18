@@ -168,6 +168,13 @@ func (c *Client) Search(sr *SearchRequest) ([]SearchResult, error) {
 
 type optionFn func(*Client)
 
+// WithDebug enables debug output while interacting with MIPS
+func WithDebug() optionFn {
+	return func(c *Client) {
+		c.debug = true
+	}
+}
+
 // WithURL contains the MIPS target url
 func WithURL(u url.URL) optionFn {
 	return func(c *Client) {
